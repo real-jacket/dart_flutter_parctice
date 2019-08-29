@@ -27,6 +27,10 @@ class NumberCreator {
 }
 
 void main() {
+  // 单一订阅的 stream ，只能有一个监听
+  // final stream = NumberCreator().stream;
+
+  // 使用 asBroadcastStream ，变成 广播 stream ，便可以有多个 stream。
   final stream = NumberCreator().stream.asBroadcastStream();
 
   stream.listen((n) => print(n));
